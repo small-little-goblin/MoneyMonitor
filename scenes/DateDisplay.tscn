@@ -1,0 +1,86 @@
+[gd_scene load_steps=2 format=3 uid="uid://camwn4m2x6nkn"]
+
+[ext_resource type="Script" path="res://scripts/DateDisplay.gd" id="1_tss71"]
+
+[node name="DateDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tss71")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -20.0
+offset_right = 22.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LeftArrow" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="Date" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.243137, 0.576471, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="RightArrow" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = ">"
+
+[node name="DatePickerPopup" type="PopupPanel" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DatePickerPopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 116.0
+offset_bottom = 97.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DatePickerPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="DatePickerPopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MonthOptionButton" type="OptionButton" parent="DatePickerPopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DatePickerPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="Year" type="Label" parent="DatePickerPopup/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="YearSpinbox" type="SpinBox" parent="DatePickerPopup/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+min_value = 2024.0
+max_value = 2100.0
+value = 2024.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="DatePickerPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="Ok" type="Button" parent="DatePickerPopup/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Okay"
+
+[node name="Cancel" type="Button" parent="DatePickerPopup/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Cancel"

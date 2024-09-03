@@ -1,0 +1,128 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvwvxe54len40"]
+
+[ext_resource type="Script" path="res://scripts/Menu.gd" id="1_7bgs6"]
+[ext_resource type="Script" path="res://scripts/IncomePopup.gd" id="2_ek24n"]
+[ext_resource type="Script" path="res://scripts/ExpensePopup.gd" id="3_vp363"]
+[ext_resource type="Script" path="res://scripts/CategoryPopup.gd" id="4_b31sv"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7bgs6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AddIncomeButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Add Income"
+
+[node name="AddExpenseButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Add Expense"
+
+[node name="AddCategoryButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Add Category"
+
+[node name="IncomePopup" type="PopupPanel" parent="."]
+script = ExtResource("2_ek24n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="IncomePopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 112.0
+offset_bottom = 159.0
+
+[node name="Label" type="Label" parent="IncomePopup/VBoxContainer"]
+layout_mode = 2
+text = "Name:"
+
+[node name="NameEdit" type="LineEdit" parent="IncomePopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="IncomePopup/VBoxContainer"]
+layout_mode = 2
+text = "Amount:	"
+
+[node name="AmountEdit" type="LineEdit" parent="IncomePopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="FixedCheck" type="CheckBox" parent="IncomePopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="IncomePopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="Ok" type="Button" parent="IncomePopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="Cancel" type="Button" parent="IncomePopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="ExpensePopup" type="PopupPanel" parent="."]
+script = ExtResource("3_vp363")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ExpensePopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 169.0
+offset_bottom = 140.0
+
+[node name="NameEdit" type="LineEdit" parent="ExpensePopup/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Name"
+
+[node name="AmountEdit" type="LineEdit" parent="ExpensePopup/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Cost"
+
+[node name="CategoryOption" type="OptionButton" parent="ExpensePopup/VBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "Select a Category"
+popup/item_0/disabled = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ExpensePopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="Ok" type="Button" parent="ExpensePopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="Cancel" type="Button" parent="ExpensePopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="CategoryPopup" type="PopupPanel" parent="."]
+script = ExtResource("4_b31sv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CategoryPopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 112.0
+offset_bottom = 96.0
+
+[node name="NameEdit" type="LineEdit" parent="CategoryPopup/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CategoryPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="Ok" type="Button" parent="CategoryPopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="Cancel" type="Button" parent="CategoryPopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Cancel"

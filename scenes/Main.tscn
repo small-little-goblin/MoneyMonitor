@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://c44jqcj64eix"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_x1upa"]
+[ext_resource type="PackedScene" uid="uid://camwn4m2x6nkn" path="res://scenes/DateDisplay.tscn" id="2_i8hf1"]
+[ext_resource type="PackedScene" uid="uid://dvwvxe54len40" path="res://scenes/Menu.tscn" id="3_ftt28"]
+[ext_resource type="PackedScene" uid="uid://bgfg8pj3bdjlw" path="res://scenes/Stats.tscn" id="4_6xxyx"]
+[ext_resource type="PackedScene" uid="uid://chrogecsu21d2" path="res://scenes/Distribution.tscn" id="4_dkj8a"]
+[ext_resource type="PackedScene" uid="uid://c5vrsvenwa18k" path="res://scenes/CategoryList.tscn" id="5_0b31s"]
+[ext_resource type="PackedScene" uid="uid://dhiwrudifl2d5" path="res://scenes/ExpenseList.tscn" id="6_mdj30"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2vi4"]
+bg_color = Color(0.389179, 0.000444102, 0.480753, 0.172549)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x1upa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DateDisplay" parent="VBoxContainer" instance=ExtResource("2_i8hf1")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Menu" parent="VBoxContainer/HBoxContainer2" instance=ExtResource("3_ftt28")]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Distribution" parent="VBoxContainer/HBoxContainer2" instance=ExtResource("4_dkj8a")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Stats" parent="VBoxContainer" instance=ExtResource("4_6xxyx")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="CategoryList" parent="VBoxContainer/HBoxContainer" instance=ExtResource("5_0b31s")]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ExpenseList" parent="VBoxContainer/HBoxContainer" instance=ExtResource("6_mdj30")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e2vi4")

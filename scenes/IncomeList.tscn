@@ -1,0 +1,127 @@
+[gd_scene load_steps=2 format=3 uid="uid://nugpvannd77f"]
+
+[ext_resource type="Script" path="res://scripts/IncomeList.gd" id="1_xkc0x"]
+
+[node name="IncomeList" type="PopupPanel"]
+initial_position = 1
+size = Vector2i(208, 234)
+visible = true
+script = ExtResource("1_xkc0x")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 204.0
+offset_bottom = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Incomes" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ListEntry" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 204.0
+offset_bottom = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ListEntry"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="ListEntry/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+text = "Text 1"
+
+[node name="Amount" type="Label" parent="ListEntry/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Text 2"
+
+[node name="ModPopup" type="PopupPanel" parent="."]
+auto_translate_mode = 1
+initial_position = 1
+size = Vector2i(116, 219)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ModPopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 112.0
+offset_bottom = 215.0
+
+[node name="NameChangeLabel" type="Label" parent="ModPopup/VBoxContainer"]
+layout_mode = 2
+text = "Name:"
+
+[node name="NameChangeEdit" type="LineEdit" parent="ModPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="AmountChangeLabel" type="Label" parent="ModPopup/VBoxContainer"]
+layout_mode = 2
+text = "Amount:	"
+
+[node name="AmountChangeEdit" type="LineEdit" parent="ModPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ModPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="FixChangeLabel" type="Label" parent="ModPopup/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Fixed:"
+
+[node name="FixedCheck" type="CheckBox" parent="ModPopup/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ModPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="DeleteLabel" type="Label" parent="ModPopup/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Delete:"
+
+[node name="DeleteCheck" type="CheckBox" parent="ModPopup/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ModPopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="Ok" type="Button" parent="ModPopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="Cancel" type="Button" parent="ModPopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Cancel"
